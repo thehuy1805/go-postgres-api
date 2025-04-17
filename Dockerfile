@@ -10,6 +10,5 @@ RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o myapp ./main.go
 FROM alpine:latest
 WORKDIR /root/
 COPY --from=builder /app/myapp .
-COPY .env .
 EXPOSE 8080
 CMD ["./myapp"]
